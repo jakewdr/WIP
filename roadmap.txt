@@ -1,0 +1,61 @@
+Games to take inspiration from;
+-spiderheck
+-ps4 spiderman
+
+Aesthetic;
+-instead of sliding along the ground, the player will have a roll/run (when close enough to ground) animation so it doesnt look goofy
+
+-slowdown and zoom in when final kill happens
+-rounds-like Chromatic aberration when large explosions
+-animations for everything
+-background art
+-menu art/animations
+-themes of different areas idk
+
+Gameplay/mechanics;
+-left click = grapple, right click = ability
+
+-if an enemy is moving fast enough after being hit they will explode on contact with terrain that is based off of their velocity
+-bouncy blocks, teleporters etc..?
+-can grapple on to enemies/teamates and then both get dragged towards each other
+
+
+Code/calcs;
+-optimise and clean up code /make readable
+
+-add air resistance
+-going right and just before going under a block then grapple up, instead of grapple going though block it wraps around
+-only certain surfaces you can grapple on to (maybe could have it so that in campaign you have a chase level with being able to grapple to cranes etc) and not just thin air
+-pvp damage calculated by seeing whoever was farthest from the resulting velocity after collision, and dealing damage accordingly (ie who experienced the greatest acceleraton and dealing damage to them based off of that)
+-if hit an enemy but dont kill them then should deal damage and rebound instead with less vel based off of damage
+-if hit an enemy and would kill, kill them in an explosion and continue on in your direction without loosing vel
+
+character/ability ideas;
+-ability where you shoot ball of energy that locks an enemy / object / player in place then allows you to do the zelda thing (https://youtu.be/PMestfpYPXA?t=665)
+
+-ability that attracts all enemies towards you for a period of time
+-ability that allows you to do the anime thing of freezing time and quick-slashing all nearby enemies
+
+-ability that puts you back in time a few seconds
+
+-add ultrakill coins / gun
+
+Gamemode ideas;
+- basketball pvp
+-multiplayer
+-survival endless - waves of enemies? (maybe idk)
+-campaign
+-super smash bros esque?
+-maybe have a mode where it is like this https://cdn.discordapp.com/attachments/1118297097163260044/1180648036427378818/EOiX6i3UEAA_oHs.png?ex=657e2f2b&is=656bba2b&hm=1014bf9f0acc6383ed3db4b1957ba3802e5508610ffbd5ae4ef5f55b24bdc803& (imagining a guy running outside when on a long car journey)
+
+
+Enemy ideas;
+-underwater mine-looking/acting enemy ?
+
+-rocket turret enemy?
+
+-rocket launcher holding enemy?
+
+-just machine gun enemy?
+
+-helicopter enemy?
