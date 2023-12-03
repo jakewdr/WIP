@@ -41,7 +41,7 @@ character/ability ideas;
 -add ultrakill coins / gun
 
 Gamemode ideas;
-- basketball pvp
+-basketball pvp
 -multiplayer
 -survival endless - waves of enemies? (maybe idk)
 -campaign

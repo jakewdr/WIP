@@ -28,7 +28,7 @@ def bundleDirectory(fileDirectory: str, outputPath: str, compressionLevel: int, 
     pythonFiles = []
 
     for entry in pathlib.Path(fileDirectory).iterdir():
-        if entry.is_file() and pathlib.Path(entry).suffix == ".py":
+        if entry.is_file() and pathlib.Path(entry).suffix == ".py" or pathlib.Path(entry).suffix == ".pyw":
                 pythonFiles.append(str(entry))
     
     bundling(list(pythonFiles),str(outputPath),int(compressionLevel), bool(createRequirements))
@@ -48,7 +48,7 @@ def compressionCheck(compressionLevel: int):
         raise ValueError("The value for compression level is not valid!")
 
 def bundling(pythonFiles: list, outputPath: str, compressionLevel: int, createRequirements: bool): # This code is hellish but optimal
-    with zipfile.ZipFile(str(outputPath + "bundle.py"), 'w',compression= zipfile.ZIP_DEFLATED,
+    with zipfile.ZipFile(str(outputPath + "bundle.pyw"), 'w',compression= zipfile.ZIP_DEFLATED,
             compresslevel= int(compressionLevel)) as bundler:
         [bundler.write(file, arcname=str(path_leaf(file))) for file in pythonFiles] # List comprehension
     if createRequirements == True:
