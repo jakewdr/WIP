@@ -2,18 +2,18 @@ Roadmap
 
 Games to take inspiration from;
 -spiderheck-basically everything
--bopl battle - basically everything
+-bopl battle - development ideas to make it as fun as possible to play with friends 
 -ps4 spiderman - abilities/grapple mechanics
 -deep rock-abilities/weapons and upgrading
--ultrakill - combat + weapons/attacks
+-ultrakill - fast paced + combat + weapons/attacks
 -cup head - combat + abilities
 -soul knight - abilities
 -hollow knight - abilities
+-pizza tower - artstyle?
 
 Aesthetic;
--artstyle - pixel retro or..?
+-artstyle - pixel retro or..? - want it to be unique - need to integrate into mechanics or it won’t be a cool contribution
 -instead of sliding along the ground, the player will have a roll/run (when close enough to ground) animation so it doesnt look goofy
-
 -slowdown and zoom in when final kill happens
 -rounds-like Chromatic aberration when large explosions
 -animations for everything
@@ -32,21 +32,26 @@ Gameplay/mechanics;
 -think about speedrunning when doing any thing
 -camera follows character in a greater world and doesnt just display whole world
 -left click = grapple, right click = ability
-
 -if an enemy is moving fast enough after being hit they will explode on contact with terrain that is based off of their velocity
 -bouncy blocks, teleporters etc..?
 -can grapple on to enemies/teamates and then both get dragged towards each other
-
 -point system like ultrakill or pizza tower?
 -parrying stuff (even nukes? https://youtube.com/watch?v=OoVV1WThyZ8&si=bAlbe98FVQmtxb38  lol )
 -combos leading to compounding damage multipliers
 -level editor
 -upgradeable stats or same for all? Maybe just able to upgrade attacks?
+-use deep learning for some of the harder enemies and maybe a few bossfights just so it is really hard lol
 
 Code/calcs;
--optimise and clean up code /make readable
-
+-comment code
+-optimise and generalise operations, optimising where possible
+-clean up code/make readable
+-instead of adding small number check if value is not zero in cod as if it is negative of that value it will still break
 -add air resistance
+-have it so you may click both at once and both inputs pressed (need to check for letting go to halt changing the endpoint)
+-have the grapple disconnect automatically if too long
+-unlink fps and tps/have all movement in terms of a separate value to drawing the screen each frame
+-animate grapple shots - normalise from player to mouse, add to current grapple, normalise from end of new grapple to mouse, add to grapple, normalise… etc
 -going right and just before going under a block then grapple up, instead of grapple going though block it wraps around
 -only certain surfaces you can grapple on to (maybe could have it so that in campaign you have a chase level with being able to grapple to cranes etc) and not just thin air
 -pvp damage calculated by seeing whoever was farthest from the resulting velocity after collision, and dealing damage accordingly (ie who experienced the greatest acceleraton and dealing damage to them based off of that)
@@ -61,16 +66,14 @@ character/ability ideas;
 -passsive ability?
 -have more abilities that interact with terrain
 -ability where you shoot ball of energy that locks an enemy / object / player in place then allows you to do the zelda thing (https://youtu.be/PMestfpYPXA?t=665)
-
 -ability that attracts all enemies towards you for a period of time
 -ability that allows you to do the anime thing of freezing time and quick-slashing all nearby enemies
-
 -ability that puts you back in time a few seconds
-
 -add ultrakill coins / gun
 -add guy who instantly dashes to point clicked and atomises anyone he goes through
 -zu worldu ability
 -carrion like character? (the game carrion)
+-portal gun ability character - some reference to portal like Wheatley or the anti-fall damage boots for the passive/super
 
 Gamemode ideas;
 - basketball pvp
@@ -88,23 +91,15 @@ Gamemode ideas;
 
 Enemy ideas;
 -underwater mine-looking/acting enemy ?
-
 -rocket turret enemy?
-
 -rocket launcher holding enemy?
-
 -just machine gun enemy?
-
 -helicopter enemy?
 
 Other things to use;
-
 https://choosealicense.com/licenses/mit/
-
 https://www.python.org/downloads/release/python-3120/
-
 https://chocolatey.org/install
-
 https://docs.github.com/en/codespaces/the-githubdev-web-based-editor
 
-https://replit.com/@18gallagher/gameTest#main.py
+https://replit.com/@18gallagher/gameTest#main.pygher/gameTest#main.py
