@@ -2,6 +2,20 @@ import pygame
 import sys
 import random
 
+
+
+
+
+
+
+### uhhhhhhhhhhhh ok so basically either have all important vars up here pls at some poitn ;lol :3ccccccc
+
+
+
+
+
+
+
 # Initialize Pygame
 pygame.init()
 
@@ -16,7 +30,20 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
 
-class Collisions: # ignore for now, trying to make easier to read etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Collisions:
 
     def wall_collision(entity):
 
@@ -60,7 +87,7 @@ class Collisions: # ignore for now, trying to make easier to read etc
                 entity1.velocity[direction] *= -1 * entity_rebound_acc
                 entity2.velocity[direction] *= 1 / entity_rebound_acc
 
-    def entity_collision_check(entity1, entity2):
+    def entity_collision_check(entity1, entity2): # Kinda hard to get ur head round so read comments carefully to understand lol
 
         if min(abs(entity1.rect.left - entity2.rect.right), abs(entity1.rect.right - entity2.rect.left)) < min(abs(entity1.rect.top - entity2.rect.bottom), abs(entity1.rect.bottom - entity2.rect.top)): #Check that the x distance between them is greater than the y distance between them (as even if they collide in the y direction, they could still have different x coords). Use absolute of the distances otherwise some could be negative
 
@@ -118,6 +145,25 @@ class Collisions: # ignore for now, trying to make easier to read etc
 
             elif entity1.last_collided.count(entity2) > 0 and not entity1.rect.colliderect(entity2):
                 entity1.last_collided.remove(entity2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Entity class
@@ -188,6 +234,14 @@ class Entity:
             line_start = (self.rect.centerx, self.rect.centery)
             pygame.draw.line(screen, BLACK, line_start, self.line_end, 4)
 
+
+
+
+
+
+
+
+
 class Wall:
     def __init__(self, x, y, width, height):
         self.rect = pygame.Rect(x, y, width, height)
@@ -196,6 +250,13 @@ class Wall:
 
     def draw(self,screen):
       pygame.draw.rect(screen, RED, self.rect)
+
+
+
+
+
+
+
 
 def main():
     global room_rect
