@@ -25,6 +25,7 @@ Aesthetic;
 -Easter eggs?
 -music?
 -loading logo is just main character spinning around a point
+-"Alzheimer’s studios" then do the re-release same game with retextures and more corruption every few months lollll 
 
 Gameplay/mechanics;
 -open source
@@ -43,13 +44,15 @@ Gameplay/mechanics;
 -use deep learning for some of the harder enemies and maybe a few bossfights just so it is really hard lol
 
 Code/calcs;
--comment code
--optimise and generalise operations, optimising where possible
+-separate code into engine and game parts ie generalise all things
+-comment code to make easier to understand
+-OPTIMISATIONS!!!
 -clean up code/make readable
--instead of adding small number check if value is not zero in cod as if it is negative of that value it will still break
--add air resistance
+-generalise all acceleration calcs
+-have all entities have their own bounciness
+-have all blocks and players and enemies be classed as entities, with just a toggle to set if they will be in place or not (ie an "object" toggle) so can get rid of wall collision and replace with static entities so for all entities can decide whether they are effected by gravity and other interactions ("object" toggle/parameter)
 -have it so you may click both at once and both inputs pressed (need to check for letting go to halt changing the endpoint)
--have the grapple disconnect automatically if too long
+-have the grapple disconnect automatically if is too long
 -unlink fps and tps/have all movement in terms of a separate value to drawing the screen each frame
 -animate grapple shots - normalise from player to mouse, add to current grapple, normalise from end of new grapple to mouse, add to grapple, normalise… etc
 -going right and just before going under a block then grapple up, instead of grapple going though block it wraps around
@@ -61,6 +64,7 @@ Code/calcs;
 -Have multiple instances running using .pyw filetype
 
 character/ability ideas;
+-COULD HAVE AS FOR ALL CHARS / CORE PVP LOOP - character where instead of the actual player colliding to deal damage, they have a flail type weapon that only collides with enemies to deal damage and is constantly accelerated (but doesnt collide with) the player/friendlies
 -bullets per minute kinda attack system? Could merge with stick it to the stickman type attacks? -could have osu-esque system when you click on time for certain abilities and then more powerful require a charge up so you have to hold down right click on time and it does the super ability (based off of how accurate you were)
 -super smash bros smash ultimate type attack for right hold or smthn? - with animation for each?
 -passsive ability?
@@ -74,6 +78,7 @@ character/ability ideas;
 -zu worldu ability
 -carrion like character? (the game carrion)
 -portal gun ability character - some reference to portal like Wheatley or the anti-fall damage boots for the passive/super
+-Attack on Titan skin/char
 
 Gamemode ideas;
 - basketball pvp
@@ -95,6 +100,8 @@ Enemy ideas;
 -rocket launcher holding enemy?
 -just machine gun enemy?
 -helicopter enemy?
+-spider enemy where it is basically a normal entity but with 8 grapples that move like spider legs towards player
+
 
 Other things to use;
 https://choosealicense.com/licenses/mit/
