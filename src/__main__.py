@@ -114,15 +114,15 @@ class Collisions:
             if abs(entity1.rect.left - entity2.rect.right) < abs(entity1.rect.right - entity2.rect.left):
                 entity1.rect.left = entity2.rect.right + 1
                 Collisions.resolve_collision(entity1, entity2, 0)
-  
+
             if abs(entity1.rect.left - entity2.rect.right) > abs(entity1.rect.right - entity2.rect.left):
                 entity1.rect.right = entity2.rect.left - 1
                 Collisions.resolve_collision(entity1, entity2, 0)
-  
+
             if abs(entity1.rect.top - entity2.rect.bottom) < abs(entity1.rect.bottom - entity2.rect.top):
                 entity1.rect.top = entity2.rect.bottom + 1
                 Collisions.resolve_collision(entity1, entity2, 1)
-  
+
             if abs(entity1.rect.top - entity2.rect.bottom) > abs(entity1.rect.bottom - entity2.rect.top):
                 entity1.rect.bottom = entity2.rect.top - 1
                 Collisions.resolve_collision(entity1, entity2, 1)
