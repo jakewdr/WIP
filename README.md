@@ -8,4 +8,4 @@ A silly little game that we are working on :p
 
 # Credits
 
- - @jakewdr for python bundler
+ - [jakewdr] (https://github.com/jakewdr) for python bundler
