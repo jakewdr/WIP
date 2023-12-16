@@ -65,6 +65,7 @@ Code/calcs;
 -Have multiple instances running using .pyw filetype
 
 character/ability ideas;
+-ALL CHARACTERS TO BE 25X25 PIXELS
 -COULD HAVE AS FOR ALL CHARS / CORE PVP LOOP - character where instead of the actual player colliding to deal damage, they have a flail type weapon that only collides with enemies to deal damage and is constantly accelerated (but doesnt collide with) the player/friendlies
 -bullets per minute kinda attack system? Could merge with stick it to the stickman type attacks? -could have osu-esque system when you click on time for certain abilities and then more powerful require a charge up so you have to hold down right click on time and it does the super ability (based off of how accurate you were)
 -super smash bros smash ultimate type attack for right hold or smthn? - with animation for each?
