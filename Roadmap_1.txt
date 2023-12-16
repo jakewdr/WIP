@@ -45,6 +45,7 @@ Gameplay/mechanics;
 
 Code/calcs;
 -separate code into engine and game parts ie generalise all things
+-have main just run the files, nothing else
 -comment code to make easier to understand
 -OPTIMISATIONS!!!
 -clean up code/make readable
