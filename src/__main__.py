@@ -310,7 +310,7 @@ def main():
             entity.draw(screen, entity.imagemode)
 
         pygame.display.flip()
-        pygame.time.wait(1000/FPS) # wait is in ms so multiply delta t by 1000
+        pygame.time.wait(int(1000/FPS)) # wait is in ms so multiply delta t by 1000
 
 
 if __name__ == "__main__":
