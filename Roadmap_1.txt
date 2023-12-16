@@ -31,10 +31,13 @@ Gameplay/mechanics;
 -open source
 -port to godot later on
 -think about speedrunning when doing any thing
+-voice lines?
+-implement animations
 -camera follows character in a greater world and doesnt just display whole world
 -left click = grapple, right click = ability
 -if an enemy is moving fast enough after being hit they will explode on contact with terrain that is based off of their velocity
 -bouncy blocks, teleporters etc..?
+-maybe have many physics objects like stones and explosive barrels all over all maps to throw at people - maybe a few / a character(s) that can spawn their own projectile?
 -can grapple on to enemies/teamates and then both get dragged towards each other
 -point system like ultrakill or pizza tower?
 -parrying stuff (even nukes? https://youtube.com/watch?v=OoVV1WThyZ8&si=bAlbe98FVQmtxb38  lol )
@@ -49,7 +52,8 @@ Code/calcs;
 -comment code to make easier to understand
 -OPTIMISATIONS!!!
 -clean up code/make readable
--generalise all acceleration calcs
+-generalise all acceleration calcs ie resolve the physics like actual physics ie resolve accleration for each entity every frame
+-have a density parameter not just a mass parameter as then you dont have to think about how much mass a certain object would have
 -have all entities have their own bounciness
 -have all blocks and players and enemies be classed as entities, with just a toggle to set if they will be in place or not (ie an "object" toggle) so can get rid of wall collision and replace with static entities so for all entities can decide whether they are effected by gravity and other interactions ("object" toggle/parameter)
 -have it so you may click both at once and both inputs pressed (need to check for letting go to halt changing the endpoint)
@@ -67,6 +71,7 @@ Code/calcs;
 character/ability ideas;
 -ALL CHARACTERS TO BE 25X25 PIXELS
 -COULD HAVE AS FOR ALL CHARS / CORE PVP LOOP - character where instead of the actual player colliding to deal damage, they have a flail type weapon that only collides with enemies to deal damage and is constantly accelerated (but doesnt collide with) the player/friendlies
+-all characters will be ripped from other games but will be 25x25 pixel semi-ripoff versions of them
 -bullets per minute kinda attack system? Could merge with stick it to the stickman type attacks? -could have osu-esque system when you click on time for certain abilities and then more powerful require a charge up so you have to hold down right click on time and it does the super ability (based off of how accurate you were)
 -super smash bros smash ultimate type attack for right hold or smthn? - with animation for each?
 -passsive ability?
