@@ -266,8 +266,6 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Torsion-alphatest")
 
-    clock = pygame.time.Clock()
-
     player = Entity(70, 70, 250, 250, "image", BLUE, "ble.jpg")
     third_entity = Entity(95, 300, 250, 250, "image",  RED, "fis.jpg")
     entities = [player, third_entity]
@@ -312,7 +310,7 @@ def main():
             entity.draw(screen, entity.imagemode)
 
         pygame.display.flip()
-        clock.tick(FPS)
+        pygame.time.wait(1000/FPS) # wait is in ms so multiply delta t by 1000
 
 
 if __name__ == "__main__":
