@@ -266,8 +266,8 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Torsion-alphatest")
 
-    player = Entity(70, 70, 250, 250, "image", BLUE, "ble.jpg")
-    third_entity = Entity(95, 300, 250, 250, "image",  RED, "fis.jpg")
+    player = Entity(70, 70, 50, 50, "image", BLUE, "ble.jpg")
+    third_entity = Entity(95, 300, 50, 50, "image",  RED, "fis.jpg")
     entities = [player, third_entity]
 
     room_rect = pygame.Rect(50, 50, WIDTH - 100, HEIGHT - 100)
