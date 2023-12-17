@@ -311,8 +311,7 @@ def main():
 
         wall.draw(screen)
 
-        for entity in entities:
-            entity.draw(screen, entity.imagemode)
+        [entity.draw(screen, entity.imagemode) for entity in entities] # List comprehension because we gaming
 
         pygame.display.flip()
         pygame.time.wait(int(1000/FPS)) # wait is in ms so multiply delta t by 1000
