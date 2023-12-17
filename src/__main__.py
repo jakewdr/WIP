@@ -1,36 +1,35 @@
+# Imports ->
+
+import unpacker
 import pygame
 import random
 import sys
 import os
 
+### Important Paths ->
 
+scriptPath = str(os.path.realpath(__file__).replace(os.sep, '/')) # Gets the path of the current running python script and makes sure forward-slashes are used
+bundlePath = scriptPath.replace("/__main__.py", "")
+containingFolder = scriptPath.replace("bundle.py/__main__.py", "") # Removes the bundle and script path from the string
 
+# Constants - >
 
-
-
-
-### uhhhhhhhhhhhh ok so basically either have all important vars up here pls at some point ;lol :3ccccccc
-
-
-
-
-
-
-
-# Initialize Pygame
-pygame.init()
-
-# Constants
 WIDTH, HEIGHT = 1080, 720
 FPS = 60
 
-# Colors
+# Colours ->
+
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
 
+# Colour Tag system
+
+coloursConfig = unpacker.unpackCsv(containingFolder + "colours.csv")
+backgroundColour = coloursConfig[0][1].strip()
+lineColour = coloursConfig[1][1].strip()
 
 
 
@@ -260,6 +259,7 @@ class Wall:
 
 
 def main():
+    print(os.getcwd())
     global room_rect
                                                 #width #height
     wall = Wall(WIDTH //2-4000 , HEIGHT // 2 - 200, 40, 200)
@@ -267,8 +267,7 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Torsion-alphatest")
     
-    scriptPath = str(os.path.realpath(__file__).replace(os.sep, '/')) # Gets the path of the current running python script and makes sure forward-slashes are used
-    containingFolder = scriptPath.replace("bundle.py/__main__.py", "") # Removes the bundle and script path from the string
+    
 
     player = Entity(70, 70, 50, 50, "image", BLUE, containingFolder + "/assets/ble.jpg")
     third_entity = Entity(95, 300, 50, 50, "image",  RED, containingFolder + "/assets/fis.jpg")
@@ -317,4 +316,5 @@ def main():
 
 
 if __name__ == "__main__":
+    pygame.init() # Initialize pygame
     main()

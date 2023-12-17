@@ -1,6 +1,7 @@
+from timeit import default_timer as timer
 import tinyBundle
 import shutil
-from timeit import default_timer as timer
+import os
 
 """
 This is the boilerplate for a bundle script, this uses the tinyBundle module to bundle all files
@@ -19,7 +20,7 @@ Generating a requirements.txt file and compressing the files more uses more reso
 requirements haven't changed then its recommended that you just generate requirements when needed.
 """
 
-files = ["src/__main__.py", "src/engine.py", "src/game.pyw"] # Add other files here (can also be a list but a tuple if preferred)
+files = ["src/__main__.py", "src/engine.py", "src/game.pyw", "src/unpacker.py"] # Add other files here (can also be a list but a tuple if preferred)
 
 start = timer()
 tinyBundle.bundle(files,"out/", 9, False) # out/ is the default output location and 0 is the default compression level
@@ -30,5 +31,11 @@ try:
 except FileExistsError:
     shutil.rmtree("out/assets")
     shutil.copytree('src/assets', 'out/assets')
+
+try:
+    shutil.copyfile("src/colours.csv", "out/colours.csv")
+except FileExistsError:
+    os.remove("out/colours.csv")
+    shutil.copyfile("src/colours.csv", "out/colours.csv")
     
 print("Bundled files in " + str(end - start) + " seconds") # time in seconds
