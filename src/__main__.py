@@ -27,9 +27,10 @@ BLACK = (0, 0, 0)
 
 # Colour Tag system
 
-coloursConfig = unpacker.unpackCsv(containingFolder + "colours.csv")
-backgroundColour = coloursConfig[0][1].strip()
-lineColour = coloursConfig[1][1].strip()
+coloursConfig = unpacker.unpackCfg(containingFolder + "colours.cfg")
+BACKGROUNDCOLOUR = coloursConfig[0][1]
+LINECOLOUR = coloursConfig[1][1]
+WALLCOLOUR = coloursConfig[2][1]
 
 
 
@@ -216,7 +217,7 @@ class Entity:
 
         if self.line_exists and self.line_end:
             line_start = (self.rect.centerx, self.rect.centery)
-            pygame.draw.line(screen, lineColour, line_start, self.line_end, 4)
+            pygame.draw.line(screen, LINECOLOUR, line_start, self.line_end, 4)
 
 
 
@@ -288,7 +289,7 @@ def main():
               entity.velocity[1] *= -1
         
 
-        screen.fill(backgroundColour)
+        screen.fill(BACKGROUNDCOLOUR)
         pygame.draw.rect(screen, (0, 0, 255), room_rect, 2)
 
         wall.draw(screen)

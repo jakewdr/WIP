@@ -26,6 +26,8 @@ start = timer()
 tinyBundle.bundle(files,"out/", 9, False) # out/ is the default output location and 0 is the default compression level
 end = timer()
 
+# I'll automate the below later
+
 try:
     shutil.copytree('src/assets', 'out/assets')
 except FileExistsError:
@@ -33,9 +35,9 @@ except FileExistsError:
     shutil.copytree('src/assets', 'out/assets')
 
 try:
-    shutil.copyfile("src/colours.csv", "out/colours.csv")
+    shutil.copyfile("src/colours.cfg", "out/colours.cfg")
 except FileExistsError:
-    os.remove("out/colours.csv")
-    shutil.copyfile("src/colours.csv", "out/colours.csv")
+    os.remove("out/colours.cfg")
+    shutil.copyfile("src/colours.cfg", "out/colours.cfg")
     
 print("Bundled files in " + str(end - start) + " seconds") # time in seconds
