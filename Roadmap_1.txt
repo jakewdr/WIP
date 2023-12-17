@@ -58,6 +58,7 @@ Code/calcs;
 -have all blocks and players and enemies be classed as entities, with just a toggle to set if they will be in place or not (ie an "object" toggle) so can get rid of wall collision and replace with static entities so for all entities can decide whether they are effected by gravity and other interactions ("object" toggle/parameter)
 -have it so you may click both at once and both inputs pressed (need to check for letting go to halt changing the endpoint)
 -have the grapple disconnect automatically if is too long
+-how are we gonna handle saving the game? / saves
 -unlink fps and tps/have all movement in terms of a separate value to drawing the screen each frame
 -animate grapple shots - normalise from player to mouse, add to current grapple, normalise from end of new grapple to mouse, add to grapple, normalise… etc
 -going right and just before going under a block then grapple up, instead of grapple going though block it wraps around
@@ -104,6 +105,7 @@ character/ability ideas;
 -neco arc character
 -frenchman (napoleon) character
 -tf2 class (idk yet) character 
+-obamna soda character
 
 Gamemode ideas;
 - basketball pvp
@@ -127,6 +129,14 @@ Enemy ideas;
 -helicopter enemy?
 -spider enemy where it is basically a normal entity but with 8 grapples that move like spider legs towards player
 
+Each entity will have the following parameters; (everything apart from the background will be an entity, including walls and throwable objects etc)
+-object (or not?) - ie will not move at any point
+-original spawn coordinates
+-hitbox size (for now is constant)
+-bounciness 
+-enemy/what team
+-sprite/colour
+-density 
 
 Other things to use;
 https://choosealicense.com/licenses/mit/
