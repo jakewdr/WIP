@@ -3,7 +3,7 @@ run:
 	python out/bundle.py --enable-big-digits=15 --OO --enable-optimizations --enable-bolt
 
 build:
-	python build.py
+	python build.py --enable-big-digits=15 --OO --enable-optimizations --enable-bolt
 
 setup: requirements.txt
 	pip install -r requirements.txt
