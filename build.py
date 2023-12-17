@@ -19,14 +19,16 @@ Generating a requirements.txt file and compressing the files more uses more reso
 requirements haven't changed then its recommended that you just generate requirements when needed.
 """
 
-files = ["src/__main__.py"] # Add other files here (can also be a list but a tuple if preferred)
+files = ["src/__main__.py", "src/engine.py", "src/game.pyw"] # Add other files here (can also be a list but a tuple if preferred)
 
 start = timer()
 tinyBundle.bundle(files,"out/", 0, False) # out/ is the default output location and 0 is the default compression level
 end = timer()
+
 try:
     shutil.copytree('src/assets', 'out/assets')
 except FileExistsError:
     shutil.rmtree("out/assets")
     shutil.copytree('src/assets', 'out/assets')
+    
 print("Bundled files in " + str(end - start) + " seconds") # time in seconds
