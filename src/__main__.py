@@ -2,7 +2,6 @@ import pygame
 import random
 import sys
 import os
-import re
 
 
 
@@ -10,7 +9,7 @@ import re
 
 
 
-### uhhhhhhhhhhhh ok so basically either have all important vars up here pls at some poitn ;lol :3ccccccc
+### uhhhhhhhhhhhh ok so basically either have all important vars up here pls at some point ;lol :3ccccccc
 
 
 
@@ -180,7 +179,7 @@ class Entity:
         self.imagemode = imagemode
 
         if self.imagemode == "color":
-            self.color = color  # changed abck to colour cause i think the iamges are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+            self.color = color  # changed back to colour cause i think the images are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
         elif self.imagemode == "image":
             self.image = pygame.image.load(image)  # Load the image
             self.image = pygame.transform.scale(self.image, (width, height))
@@ -228,7 +227,7 @@ class Entity:
 
     def draw(self, screen, imagemode):
         if imagemode == "color":
-            pygame.draw.rect(screen, self.color, self.rect) # changed abck to colour cause i think the iamges are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  nono more like HEHEHEHEHA GRrrRRrrrrrr
+            pygame.draw.rect(screen, self.color, self.rect) # changed back to colour cause i think the images are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  nono more like HEHEHEHEHA GRrrRRrrrrrr
         elif imagemode == "image":
             screen.blit(self.image, self.rect)
 
@@ -304,7 +303,7 @@ def main():
             if entity.rect.colliderect(wall.rect): #wall collision thingy 
               entity.velocity[0] *= -1
               entity.velocity[1] *= -1
-
+        
 
         screen.fill(WHITE)
         pygame.draw.rect(screen, (0, 0, 255), room_rect, 2)
