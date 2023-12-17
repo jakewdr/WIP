@@ -22,7 +22,7 @@ requirements haven't changed then its recommended that you just generate require
 files = ["src/__main__.py", "src/engine.py", "src/game.pyw"] # Add other files here (can also be a list but a tuple if preferred)
 
 start = timer()
-tinyBundle.bundle(files,"out/", 0, False) # out/ is the default output location and 0 is the default compression level
+tinyBundle.bundle(files,"out/", 9, False) # out/ is the default output location and 0 is the default compression level
 end = timer()
 
 try:
