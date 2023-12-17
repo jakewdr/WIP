@@ -216,7 +216,7 @@ class Entity:
 
         if self.line_exists and self.line_end:
             line_start = (self.rect.centerx, self.rect.centery)
-            pygame.draw.line(screen, BLACK, line_start, self.line_end, 4)
+            pygame.draw.line(screen, lineColour, line_start, self.line_end, 4)
 
 
 
@@ -288,7 +288,7 @@ def main():
               entity.velocity[1] *= -1
         
 
-        screen.fill(WHITE)
+        screen.fill(backgroundColour)
         pygame.draw.rect(screen, (0, 0, 255), room_rect, 2)
 
         wall.draw(screen)
