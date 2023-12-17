@@ -21,7 +21,7 @@ import os
 pygame.init()
 
 # Constants
-WIDTH, HEIGHT = 1200, 1200
+WIDTH, HEIGHT = 1080, 720
 FPS = 60
 
 # Colors
