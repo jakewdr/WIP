@@ -1,4 +1,5 @@
 import tinyBundle
+import shutil
 from timeit import default_timer as timer
 
 """
@@ -23,4 +24,5 @@ files = ["src/__main__.py"] # Add other files here (can also be a list but a tup
 start = timer()
 tinyBundle.bundle(files,"out/", 0, False) # out/ is the default output location and 0 is the default compression level
 end = timer()
+shutil.copytree('src/assets', 'out/assets')
 print("Bundled files in " + str(end - start) + " seconds") # time in seconds
