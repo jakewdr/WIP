@@ -1,6 +1,8 @@
 import pygame
-import sys
 import random
+import sys
+import os
+import re
 
 
 
@@ -49,7 +51,7 @@ class Collisions:
 
         wall_rebound_acc = 0.83 # Multiplier applied to velocity once rebounded
 
-        if entity.rect.left < room_rect.left: # If left hand side of player is to left of left side of wall 
+        if entity.rect.left < room_rect.left: # If left hand side of player is to left of left side of wall  # type: ignore
             entity.rect.left = room_rect.left # move player such that its left side is to the right of the wall instantly
             entity.velocity[0] *= -1 * wall_rebound_acc # reverse velocity in x direction and apply rebound multiplier
 
@@ -184,7 +186,7 @@ class Entity:
             self.image = pygame.transform.scale(self.image, (width, height))
 
     def apply_gravity(self):
-        self.velocity[1] += 0.5 # Adds velocity in downards dir (down is pos)
+        self.velocity[1] += 0.5 # Adds velocity in downwards dir (down is pos)
 
     def apply_air_res(self):
         air_res = 0.998
@@ -226,9 +228,9 @@ class Entity:
 
     def draw(self, screen, imagemode):
         if imagemode == "color":
-          pygame.draw.rect(screen, self.color, self.rect) # changed abck to colour cause i think the iamges are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  nono more like HEHEHEHEHA GRrrRRrrrrrr
+            pygame.draw.rect(screen, self.color, self.rect) # changed abck to colour cause i think the iamges are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  nono more like HEHEHEHEHA GRrrRRrrrrrr
         elif imagemode == "image":
-          screen.blit(self.image, self.rect)
+            screen.blit(self.image, self.rect)
 
         if self.line_exists and self.line_end:
             line_start = (self.rect.centerx, self.rect.centery)
@@ -249,7 +251,7 @@ class Wall:
         self.image.fill(BLACK)
 
     def draw(self,screen):
-      pygame.draw.rect(screen, RED, self.rect)
+        pygame.draw.rect(screen, RED, self.rect)
 
 
 
@@ -260,14 +262,17 @@ class Wall:
 
 def main():
     global room_rect
-                                                  #width #height
+                                                #width #height
     wall = Wall(WIDTH //2-4000 , HEIGHT // 2 - 200, 40, 200)
 
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Torsion-alphatest")
+    
+    scriptPath = str(os.path.realpath(__file__).replace(os.sep, '/')) # Gets the path of the current running python script and makes sure forward-slashes are used
+    containingFolder = scriptPath.replace("bundle.py/__main__.py", "") # Removes the bundle and script path from the string
 
-    player = Entity(70, 70, 50, 50, "image", BLUE, "ble.jpg")
-    third_entity = Entity(95, 300, 50, 50, "image",  RED, "fis.jpg")
+    player = Entity(70, 70, 50, 50, "image", BLUE, containingFolder + "/assets/ble.jpg")
+    third_entity = Entity(95, 300, 50, 50, "image",  RED, containingFolder + "/assets/fis.jpg")
     entities = [player, third_entity]
 
     room_rect = pygame.Rect(50, 50, WIDTH - 100, HEIGHT - 100)
