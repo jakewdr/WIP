@@ -1,5 +1,6 @@
 # Imports ->
 
+import decoder
 import pygame
 import random
 import cfg
@@ -260,9 +261,10 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Torsion-alphatest")
     
-    
+    Yakuza = decoder.decodeImageFile(containingFolder + "Template.pak", "images/y6.png")
 
-    player = Entity(70, 70, 50, 50, "image", BLUE, containingFolder + "/assets/ble.jpg")
+    #player = Entity(70, 70, 50, 50, "image", BLUE, containingFolder + "/assets/ble.jpg")
+    player = Entity(70, 70, 50, 50, "image", BLUE, Yakuza)
     third_entity = Entity(95, 300, 50, 50, "image",  RED, containingFolder + "/assets/fis.jpg")
     entities = [player, third_entity]
 

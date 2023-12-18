@@ -13,4 +13,5 @@ def decodeTextFile(pakFilePath:str, filePath:str):
 
 def decodeImageFile(pakFilePath:str, filePath:str):
     with open(pakFilePath, "rb") as pakFile:
-        return zipfile.ZipFile(BytesIO(base64.b64decode(pakFile.read())), "r").read(filePath)
+        #return zipfile.ZipFile(BytesIO(base64.b64decode(pakFile.read())), "r").read(filePath)
+        return BytesIO(zipfile.ZipFile(BytesIO(base64.b64decode(pakFile.read())), "r").read(filePath))
