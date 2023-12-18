@@ -274,8 +274,6 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN and event.button ==  3:
                 #third_entity.random_swing()
                 third_entity.random_swing(player)
-        #third_entity.random_swing(player)
-        #third_entity.random_swing()
 
 
 
