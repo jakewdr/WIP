@@ -1,8 +1,9 @@
 # Imports ->
 
-import unpacker
+import decoder
 import pygame
 import random
+import cfg
 import sys
 import os
 
@@ -35,7 +36,7 @@ BLACK = (0, 0, 0)
 
 # Colour Tag system
 
-coloursConfig = unpacker.unpackCfg(containingFolder + "colours.cfg")
+coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
 BACKGROUNDCOLOUR = coloursConfig[0][1]
 LINECOLOUR = coloursConfig[1][1]
 WALLCOLOUR = coloursConfig[2][1]
@@ -256,9 +257,10 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Torsion-alphatest")
     
-    
+    Yakuza = decoder.decodeImageFile(containingFolder + "assets/Template.pak", "images/y6.png")
 
-    player = Entity(70, 70, 50, 50, "image", BLUE, containingFolder + "/assets/ble.jpg")
+    #player = Entity(70, 70, 50, 50, "image", BLUE, containingFolder + "/assets/ble.jpg")
+    player = Entity(70, 70, 50, 50, "image", BLUE, Yakuza)
     third_entity = Entity(95, 300, 50, 50, "image",  RED, containingFolder + "/assets/fis.jpg")
     entities = [player, third_entity]
 
