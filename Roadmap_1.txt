@@ -25,7 +25,7 @@ Aesthetic;
 -Easter eggs?
 -music?
 -loading logo is just main character spinning around a point
--"Frogor studios" then do the re-release same game with retextures and more corruption every few months lollll - logo is black and white frog emoji above two horozontal lines (a sideways symbol for "OR")
+-"Frogor studios" then do the re-release same game with retextures and more corruption every few months lollll - logo is black and white frog emoji above two horisontal lines (a sideways symbol for "OR")
 
 Gameplay/mechanics;
 -open source
@@ -53,7 +53,7 @@ Code/calcs;
 -comment code to make easier to understand
 -OPTIMISATIONS!!!
 -clean up code/make readable
--generalise all acceleration calcs ie resolve the physics like actual physics ie resolve accleration for each entity every frame
+-generalise all acceleration calcs ie resolve the physics like actual physics ie resolve acceleration for each entity every frame
 -make collision work for all shapes, especially circles
 -have a density parameter not just a mass parameter as then you dont have to think about how much mass a certain object would have
 -have all entities have their own bounciness
@@ -61,11 +61,12 @@ Code/calcs;
 -have it so you may click both at once and both inputs pressed (need to check for letting go to halt changing the endpoint)
 -have the grapple disconnect automatically if is too long
 -how are we gonna handle saving the game? / saves
+-each level will have its own folder that stores the position and dimensions of all objects, along with texetures and logic for any puzzles or smthn
 -unlink fps and tps/have all movement in terms of a separate value to drawing the screen each frame
 -animate grapple shots - normalise from player to mouse, add to current grapple, normalise from end of new grapple to mouse, add to grapple, normalise… etc
 -going right and just before going under a block then grapple up, instead of grapple going though block it wraps around
 -only certain surfaces you can grapple on to (maybe could have it so that in campaign you have a chase level with being able to grapple to cranes etc) and not just thin air
--pvp damage calculated by seeing whoever was farthest from the resulting velocity after collision, and dealing damage accordingly (ie who experienced the greatest acceleraton and dealing damage to them based off of that)
+-pvp damage calculated by seeing whoever was farthest from the resulting velocity after collision, and dealing damage accordingly (ie who experienced the greatest acceleration and dealing damage to them based off of that)
 -if hit an enemy but dont kill them then should deal damage and rebound instead with less vel based off of damage
 -if hit an enemy and would kill, kill them in an explosion and continue on in your direction without loosing vel
 -generalise all acceleration calculations cos they are all different for no reason as of now
@@ -77,7 +78,7 @@ character/ability ideas;
 -all characters will be ripped from other games but will be 25x25 pixel semi-ripoff versions of them
 -bullets per minute kinda attack system? Could merge with stick it to the stickman type attacks? -could have osu-esque system when you click on time for certain abilities and then more powerful require a charge up so you have to hold down right click on time and it does the super ability (based off of how accurate you were)
 -super smash bros smash ultimate type attack for right hold or smthn? - with animation for each?
--passsive ability?
+-passive ability?
 -have more abilities that interact with terrain
 -ability where you shoot ball of energy that locks an enemy / object / player in place then allows you to do the zelda thing (https://youtu.be/PMestfpYPXA?t=665)
 -ability that attracts all enemies towards you for a period of time
@@ -104,7 +105,7 @@ character/ability ideas;
 -balsei deleware (ralsei deltarune) character
 -dame doni guy character
 -hat kid (hat in time) character
--neco arc character
+-neco arc character - ultimate is same as in the melty blood game
 -frenchman (napoleon) character
 -tf2 class (idk yet) character 
 -obamna soda character

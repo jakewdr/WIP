@@ -100,23 +100,17 @@ class Collisions:
 
         if min(abs(entity1.rect.left - entity2.rect.right), abs(entity1.rect.right - entity2.rect.left)) < min(abs(entity1.rect.top - entity2.rect.bottom), abs(entity1.rect.bottom - entity2.rect.top)): #Check that the x distance between them is greater than the y distance between them (as even if they collide in the y direction, they could still have different x coords). Use absolute of the distances otherwise some could be negative
 
-            if abs(entity1.rect.left - entity2.rect.right) < abs(entity1.rect.right - entity2.rect.left): #Then, check that it is the left side of entity1 that is colliding (as even if they collided on the right hand side of entity1, the left side of entity1 would still be past the left side of entity2) by finding the absolute of the differences
-                entity1.rect.left = entity2.rect.right + 1 # +1 so that they are not intersecting after moving out to prevent clipping when at rest against each other
-                Collisions.resolve_collision(entity1, entity2, 0)
-
-            if abs(entity1.rect.left - entity2.rect.right) > abs(entity1.rect.right - entity2.rect.left):
-                entity1.rect.right = entity2.rect.left - 1
-                Collisions.resolve_collision(entity1, entity2, 0)
+            entity1.rect.center = entity1.prev_coordinates # move entity to back where it was before collision
+            Collisions.resolve_collision(entity1, entity2, 0)
 
         if min(abs(entity1.rect.left - entity2.rect.right), abs(entity1.rect.right - entity2.rect.left)) > min(abs(entity1.rect.top - entity2.rect.bottom), abs(entity1.rect.bottom - entity2.rect.top)):
+            
+            entity1.rect.center = entity1.prev_coordinates
+            Collisions.resolve_collision(entity1, entity2, 1)
 
-            if abs(entity1.rect.top - entity2.rect.bottom) < abs(entity1.rect.bottom - entity2.rect.top):
-                entity1.rect.top = entity2.rect.bottom + 1
-                Collisions.resolve_collision(entity1, entity2, 1)
-
-            if abs(entity1.rect.top - entity2.rect.bottom) > abs(entity1.rect.bottom - entity2.rect.top):
-                entity1.rect.bottom = entity2.rect.top - 1
-                Collisions.resolve_collision(entity1, entity2, 1)
+        if min(abs(entity1.rect.left - entity2.rect.right), abs(entity1.rect.right - entity2.rect.left)) == min(abs(entity1.rect.top - entity2.rect.bottom), abs(entity1.rect.bottom - entity2.rect.top)): # If colliding exactly diagonally somehow, just move back out and check the next frame
+            
+            entity1.rect.center = entity1.prev_coordinates
 
         #If they collide diagonally, just wait until next frame to check
 
@@ -169,6 +163,7 @@ class Entity:
         self.line_end = None
         self.line_exists = False
         self.imagemode = imagemode
+        self.prev_coordinates = self.rect.center
 
         if self.imagemode == "color":
             self.color = color  # changed back to colour cause i think the images are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
@@ -209,6 +204,7 @@ class Entity:
 
 
     def update(self, entities):
+        self.prev_coordinates = self.rect.center
         self.rect.x += self.velocity[0]
         self.rect.y += self.velocity[1]
         self.apply_gravity()
@@ -305,6 +301,7 @@ def main():
         pygame.display.flip()
         pygame.time.wait(int(1000/FPS)) # wait is in ms so multiply delta t by 1000
         
+        #Print fps
         clock.tick()
         print(clock.get_fps())
 
