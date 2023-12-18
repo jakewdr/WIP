@@ -40,10 +40,4 @@ except FileExistsError:
     os.remove("out/colours.cfg")
     shutil.copyfile("src/colours.cfg", "out/colours.cfg")
 
-try:
-    shutil.copyfile("src/Template.pak", "out/Template.pak")
-except FileExistsError:
-    os.remove("out/Template.pak")
-    shutil.copyfile("src/Template.pak", "out/Template.pak")
-    
 print("Bundled files in " + str(end - start) + " seconds") # time in seconds
