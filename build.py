@@ -20,7 +20,7 @@ Generating a requirements.txt file and compressing the files more uses more reso
 requirements haven't changed then its recommended that you just generate requirements when needed.
 """
 
-files = ["src/__main__.py", "src/engine.py", "src/game.py", "src/unpacker.py"] # Add other files here (can also be a list but a tuple if preferred)
+files = ["src/__main__.py", "src/engine.py", "src/game.py", "src/cfg.py", "src/decoder.py"] # Add other files here (can also be a list but a tuple if preferred)
 
 start = timer()
 tinyBundle.bundle(files,"out/", 9, False) # out/ is the default output location and 0 is the default compression level

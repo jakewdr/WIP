@@ -1,8 +1,8 @@
 # Imports ->
 
-import unpacker
 import pygame
 import random
+import cfg
 import sys
 import os
 
@@ -35,7 +35,7 @@ BLACK = (0, 0, 0)
 
 # Colour Tag system
 
-coloursConfig = unpacker.unpackCfg(containingFolder + "colours.cfg")
+coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
 BACKGROUNDCOLOUR = coloursConfig[0][1]
 LINECOLOUR = coloursConfig[1][1]
 WALLCOLOUR = coloursConfig[2][1]
