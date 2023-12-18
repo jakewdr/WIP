@@ -296,7 +296,7 @@ def main():
         
 
         screen.fill(BACKGROUNDCOLOUR)
-        pygame.draw.rect(screen, (0, 0, 255), room_rect, 2)
+        pygame.draw.rect(screen, WALLCOLOUR, room_rect, 2)
 
         wall.draw(screen)
 
@@ -304,8 +304,12 @@ def main():
 
         pygame.display.flip()
         pygame.time.wait(int(1000/FPS)) # wait is in ms so multiply delta t by 1000
+        
+        clock.tick()
+        print(clock.get_fps())
 
 
 if __name__ == "__main__":
     pygame.init() # Initialize pygame
+    clock = pygame.time.Clock()
     main()
