@@ -306,8 +306,8 @@ def main():
         print(clock.get_fps())
 
         pygame.display.flip()
-        #pygame.time.wait(int( (2*(1000/(FPS))) - (1000/(clock.get_fps() + 1)) )) # clock shenanigans to counter lag
-        pygame.time.wait(int(1000/(FPS))) #Normal clock
+        #pygame.time.wait(int( (2*(1000/(FPS))) - (1000/(clock.get_fps() + 1)) )) # clock shenanigans to counter lag - DONT GET RID OF JUST YET PLS
+        pygame.time.wait(int(1000/(FPS))) #Normal clock, * 1000 cos .wait is in ms
 
 
 if __name__ == "__main__":

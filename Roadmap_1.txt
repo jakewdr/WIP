@@ -63,7 +63,7 @@ Code/calcs;
 -have the grapple disconnect automatically if is too long
 -how are we gonna handle saving the game? / saves
 -each level will have its own folder that stores the position and dimensions of all objects, along with texetures and logic for any puzzles or smthn
--unlink fps and tps/have all movement in terms of a separate value to drawing the screen each frame
+-unlink fps and tps/have all movement in terms of a separate value to drawing the screen each frame - use https://docs.python.org/3/library/multiprocessing.html
 -animate grapple shots - normalise from player to mouse, add to current grapple, normalise from end of new grapple to mouse, add to grapple, normalise… etc
 -going right and just before going under a block then grapple up, instead of grapple going though block it wraps around
 -only certain surfaces you can grapple on to (maybe could have it so that in campaign you have a chase level with being able to grapple to cranes etc) and not just thin air
