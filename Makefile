@@ -1,12 +1,9 @@
 run:
 	make build
-	python out/bundle.py --enable-big-digits=15 --OO --enable-optimizations --enable-bolt
+	python out/bundle.py --OO
 
 build:
-	python build.py --enable-big-digits=15 --OO --enable-optimizations --enable-bolt
-
-exe:
-	python distribute.py --enable-big-digits=15 --OO --enable-optimizations --enable-bolt
+	python build.py --OO
 
 setup: requirements.txt
 	pip install -r requirements.txt
