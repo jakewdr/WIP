@@ -258,10 +258,11 @@ def main():
     pygame.display.set_caption("Torsion-alphatest")
     
     Yakuza = decoder.decodeImageFile(containingFolder + "assets/Template.pak", "images/y6.png")
-
+    Neco = decoder.decodeImageFile(containingFolder + "assets/Template.pak", "images/neco.png")
+    
     #player = Entity(70, 70, 50, 50, "image", BLUE, containingFolder + "/assets/ble.jpg")
     player = Entity(70, 70, 50, 50, "image", BLUE, Yakuza)
-    third_entity = Entity(95, 300, 50, 50, "image",  RED, containingFolder + "/assets/fis.jpg")
+    third_entity = Entity(95, 300, 50, 50, "image",  RED, Neco)
     entities = [player, third_entity]
 
     room_rect = pygame.Rect(50, 50, WIDTH - 100, HEIGHT - 100)
