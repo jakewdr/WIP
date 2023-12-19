@@ -299,13 +299,14 @@ def main():
         wall.draw(screen)
 
         [entity.draw(screen, entity.imagemode) for entity in entities] # List comprehension because we gaming
-
-        pygame.display.flip()
-        pygame.time.wait(int(1000/FPS)) # wait is in ms so multiply delta t by 1000
         
         #Print fps
         clock.tick()
         print(clock.get_fps())
+
+        pygame.display.flip()
+        #pygame.time.wait(int( (2*(1000/(FPS))) - (1000/(clock.get_fps() + 1)) )) # clock shenanigans to counter lag
+        pygame.time.wait(int(1000/(FPS))) #Normal clock
 
 
 if __name__ == "__main__":
