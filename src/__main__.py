@@ -302,8 +302,6 @@ def main():
         [entity.draw(screen, entity.imagemode) for entity in entities] # List comprehension because we gaming
         
         #Print fps
-        clock.tick()
-        print(clock.get_fps())
 
         pygame.display.flip()
         #pygame.time.wait(int( (2*(1000/(FPS))) - (1000/(clock.get_fps() + 1)) )) # clock shenanigans to counter lag
