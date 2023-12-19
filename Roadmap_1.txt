@@ -28,6 +28,7 @@ Aesthetic;
 -"Frogor studios" then do the re-release same game with retextures and more corruption every few months lollll - logo is black and white frog emoji above two horisontal lines (a sideways symbol for "OR")
 
 Gameplay/mechanics;
+-if hit something very hard then it plays a squeaky toy sound
 -open source
 -port to godot later on (?)
 -maybe make a level editor where you can click and drag to make entities, upload your own textures etc - would make level design a lot easier btw
