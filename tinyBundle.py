@@ -63,4 +63,4 @@ def run(bundlePath):
     Args:
         bundlePath (str): Path to the bundle
     """
-    os.system("python " + " -O " + bundlePath) # optimization argument added for extra optimization (or something)
+    os.system("python " + " -OO " + bundlePath) # optimization argument added for extra optimization (or something)
