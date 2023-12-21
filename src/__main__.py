@@ -37,10 +37,12 @@ BLACK = (0, 0, 0)
 # Colour Tag system
 
 coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
-BACKGROUNDCOLOUR = coloursConfig[0][1]
-LINECOLOUR = coloursConfig[1][1]
-WALLCOLOUR = coloursConfig[2][1]
+BACKGROUNDCOLOUR = coloursConfig.get("background")
+LINECOLOUR = coloursConfig.get("lines")
+WALLCOLOUR = coloursConfig.get("walls")
 
+
+# ^ This has brokey it for some reason (wtf???????)
 
 
 
