@@ -37,10 +37,11 @@ BLACK = (0, 0, 0)
 # Colour Tag system
 
 coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
-BACKGROUNDCOLOUR = coloursConfig.get("background")
-LINECOLOUR = coloursConfig.get("lines")
-WALLCOLOUR = coloursConfig.get("walls")
 
+BACKGROUNDCOLOUR = coloursConfig.get("background")
+LINECOLOUR = coloursConfig.get("line")
+WALLCOLOUR = coloursConfig.get("walls")
+print(BACKGROUNDCOLOUR,LINECOLOUR,WALLCOLOUR )
 
 # ^ This has brokey it for some reason (wtf???????)
 
@@ -295,7 +296,6 @@ def main():
               entity.velocity[0] *= -1
               entity.velocity[1] *= -1
         
-
         screen.fill(BACKGROUNDCOLOUR)
         pygame.draw.rect(screen, WALLCOLOUR, room_rect, 2)
 
