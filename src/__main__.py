@@ -41,9 +41,6 @@ coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
 BACKGROUNDCOLOUR = coloursConfig.get("background")
 LINECOLOUR = coloursConfig.get("line")
 WALLCOLOUR = coloursConfig.get("walls")
-print(BACKGROUNDCOLOUR,LINECOLOUR,WALLCOLOUR )
-
-# ^ This has brokey it for some reason (wtf???????)
 
 
 
