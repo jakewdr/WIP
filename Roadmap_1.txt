@@ -137,7 +137,8 @@ Each entity will have the following parameters; (everything apart from the backg
 -object (or not?) - ie will not move at any point
 -original spawn coordinates
 -hitbox size (for now is constant)
--bounciness 
+-bounciness
+-coefficient of restitution 
 -enemy/what team
 -sprite/colour
 -density
