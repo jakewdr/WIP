@@ -14,15 +14,7 @@ def paker(folderToBePacked:str, outputLocation:str, manifestName:str):
     with open(separatedLines[0][1] + ".zip", "rb") as fileIn, open(separatedLines[0][1] + ".pak", "wb") as fileOut:
         base64.encode(fileIn, fileOut)
     if os.path.isfile(separatedLines[0][1] + ".zip") == True: os.remove(separatedLines[0][1] + ".zip")
-    
-def imageCompressor(imagepath:str):
-    pass
 
 if __name__ == "__main__":
     PAKNAME = "template"
     paker(containingFolder + f"/src/{PAKNAME}/", containingFolder +"/out/", "manifest.cfg")
-    
-    
-    
-    
-# I will finish this at some point
