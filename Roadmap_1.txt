@@ -110,6 +110,7 @@ character/ability ideas;
 -frenchman (napoleon) character
 -tf2 class (idk yet) character 
 -obamna soda character
+-meatboy (heavy collision damage focus)
 
 Gamemode ideas;
 - basketball pvp
