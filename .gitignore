@@ -1,5 +1,6 @@
 # vscode specific
 
+.idea/
 .vscode/
 
 # testing files
