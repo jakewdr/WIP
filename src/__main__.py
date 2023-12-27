@@ -15,7 +15,7 @@ import engine
 game.check()
 engine.check()
 
-### Important Paths ->
+# Important Paths ->
 
 scriptPath = str(os.path.realpath(__file__).replace(os.sep, "/"))  # Gets the path of the current running python script and makes sure forward-slashes are used
 bundlePath = scriptPath.replace("/__main__.py", "")
@@ -41,6 +41,8 @@ coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
 BACKGROUNDCOLOUR = coloursConfig.get("background")
 LINECOLOUR = coloursConfig.get("line")
 WALLCOLOUR = coloursConfig.get("walls")
+
+del coloursConfig
 
 
 class Collisions:
@@ -85,15 +87,15 @@ class Collisions:
 		if min(abs(entity1.rect.left - entity2.rect.right), abs(entity1.rect.right - entity2.rect.left)) < min(
 			abs(entity1.rect.top - entity2.rect.bottom), abs(entity1.rect.bottom - entity2.rect.top)
 		):  # Check that the x distance between them is greater than the y distance between them (as even if they collide in the y direction, they could still have different x coords). Use absolute of the distances otherwise some could be negative
-			entity1.rect.center = entity1.prev_coordinates  # move entity to back where it was before collision
+			entity1.rect.center = entity1.previousCoordinates  # move entity to back where it was before collision
 			Collisions.resolve_collision(entity1, entity2, 0)
 
 		if min(abs(entity1.rect.left - entity2.rect.right), abs(entity1.rect.right - entity2.rect.left)) > min(abs(entity1.rect.top - entity2.rect.bottom), abs(entity1.rect.bottom - entity2.rect.top)):
-			entity1.rect.center = entity1.prev_coordinates
+			entity1.rect.center = entity1.previousCoordinates
 			Collisions.resolve_collision(entity1, entity2, 1)
 
 		if min(abs(entity1.rect.left - entity2.rect.right), abs(entity1.rect.right - entity2.rect.left)) == min(abs(entity1.rect.top - entity2.rect.bottom), abs(entity1.rect.bottom - entity2.rect.top)):  # If colliding exactly diagonally somehow, just move back out and check the next frame
-			entity1.rect.center = entity1.prev_coordinates
+			entity1.rect.center = entity1.previousCoordinates
 
 		# If they collide diagonally, just wait until next frame to check
 
@@ -104,30 +106,30 @@ class Collisions:
 		entities.pop(entities.index(entity1))
 
 		for entity2 in entities:
-			if entity1.last_collided.count(entity2) == 0 and entity1.rect.colliderect(entity2):
+			if entity1.lastCollided.count(entity2) == 0 and entity1.rect.colliderect(entity2):
 				Collisions.entity_collision_check(entity1, entity2)
 
-				entity1.last_collided.append(entity2)
-				entity2.last_collided.append(entity1)
+				entity1.lastCollided.append(entity2)
+				entity2.lastCollided.append(entity1)
 
-			elif entity1.last_collided.count(entity2) > 0 and not entity1.rect.colliderect(entity2):
-				entity1.last_collided.remove(entity2)
+			elif entity1.lastCollided.count(entity2) > 0 and not entity1.rect.colliderect(entity2):
+				entity1.lastCollided.remove(entity2)
 
 
 # Entity class
 class Entity:
-	def __init__(self, x, y, width, height, imagemode, color, image):
+	def __init__(self, x, y, width, height, imageMode, color, image):
 		self.rect = pygame.Rect(x, y, width, height)
 		self.velocity = [0.0, 0.0]
-		self.last_collided = []
+		self.lastCollided = []
 		self.line_end = None
 		self.line_exists = False
-		self.imagemode = imagemode
-		self.prev_coordinates = self.rect.center
+		self.imageMode = imageMode
+		self.previousCoordinates = self.rect.center
 
-		if self.imagemode == "color":
-			self.color = color  # changed back to colour cause i think the images are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-		elif self.imagemode == "image":
+		if self.imageMode == "color":
+			self.color = color  # changed back to colour cause i think the images are casing the lag heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+		elif self.imageMode == "image":
 			self.image = pygame.image.load(image)  # Load the image
 			self.image = pygame.transform.scale(self.image, (width, height))
 
@@ -157,7 +159,7 @@ class Entity:
 		self.line_exists = True  # Set the line to existing
 
 	def update(self, entities):
-		self.prev_coordinates = self.rect.center
+		self.previousCoordinates = self.rect.center
 		self.rect.x += self.velocity[0]
 		self.rect.y += self.velocity[1]
 		self.apply_gravity()
@@ -165,10 +167,10 @@ class Entity:
 		Collisions.wall_collision(self)
 		Collisions.entity_collision(self, entities)
 
-	def draw(self, screen, imagemode):
-		if imagemode == "color":
+	def draw(self, screen, imageMode):
+		if imageMode == "color":
 			pygame.draw.rect(screen, self.color, self.rect)  # changed back to colour cause i think the images are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  nono more like HEHEHEHEHA GRrrRRrrrrrr
-		elif imagemode == "image":
+		elif imageMode == "image":
 			screen.blit(self.image, self.rect)
 
 		if self.line_exists and self.line_end:
@@ -231,7 +233,7 @@ def main():
 
 		wall.draw(screen)
 
-		[entity.draw(screen, entity.imagemode) for entity in entities]  # List comprehension because we gaming
+		[entity.draw(screen, entity.imageMode) for entity in entities]  # List comprehension because we gaming
 
 		# Print fps
 

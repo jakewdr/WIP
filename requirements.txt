@@ -2,3 +2,4 @@ pygame==2.5.2
 pipreqs>=0.4.13
 pyinstaller>=6.3.0
 ruff>=0.1.9
+python-minifier==2.9.0 
