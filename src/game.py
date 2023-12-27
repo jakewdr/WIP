@@ -1,2 +1,2 @@
 def check():
-    print("Game window connected :p")
+	print("Game window connected :p")
