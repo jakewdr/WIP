@@ -28,7 +28,6 @@ FPS = 60
 
 # Colours ->
 
-WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
@@ -189,7 +188,6 @@ class Wall:
 
 
 def main():
-	print(os.getcwd())
 	global room_rect
 	# width #height
 	wall = Wall(WIDTH // 2 - 4000, HEIGHT // 2 - 200, 40, 200)
@@ -234,8 +232,6 @@ def main():
 		wall.draw(screen)
 
 		[entity.draw(screen, entity.imageMode) for entity in entities]  # List comprehension because we gaming
-
-		# Print fps
 
 		pygame.display.flip()
 		# pygame.time.wait(int((2 * (1000 / (FPS))) - (1000 / (clock.get_fps() + 1))))  # clock shenanigans to counter lag - DONT GET RID OF JUST YET PLS

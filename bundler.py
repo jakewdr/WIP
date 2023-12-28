@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import zipfile
 import pathlib
@@ -26,7 +27,7 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
             minifiedCode = python_minifier.minify(contents, rename_locals=False, rename_globals=False )
             
         with open(file, "w") as fileWrite:
-            fileWrite.writelines(minifiedCode)
+            fileWrite.writelines(re.sub("\t"," ",minifiedCode))
         
     for file in pythonFiles:
         if "__main__" not in file:  
