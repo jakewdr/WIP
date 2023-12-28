@@ -90,7 +90,7 @@ def main():
 
 		# Print fps
 
-		pygame.display.flip()
+		pygame.display.update() # Switch th .flip() when GPU rendering :p
 		# pygame.time.wait(int( (2*(1000/(FPS))) - (1000/(clock.get_fps() + 1)) )) # clock shenanigans to counter lag - DONT GET RID OF JUST YET PLS
 		pygame.time.wait(int(1000 / (FPS)))  # Normal clock, * 1000 cos .wait is in ms
 
