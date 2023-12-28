@@ -40,3 +40,8 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
             compresslevel= int(compressionLevel)) as bundler:
         [bundler.write(file, arcname=str(path_leaf(file))) for file in compiledFiles] # List comprehension
         [os.remove(file) for file in compiledFiles]
+        
+if __name__ == "__main__":
+    scriptPath = str(os.path.realpath(__file__).replace(os.sep, "/"))  # Gets the path of the current running python script and makes sure forward-slashes are used
+    containingFolder = scriptPath.replace("bundler.py", "")
+    bundle("src/", "out/", 0)
