@@ -34,7 +34,7 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
             minifiedCode = python_minifier.minify(contents, rename_locals=False, rename_globals=False )
             
         with open(file, "w") as fileWrite:
-            fileWrite.writelines(re.sub("\t"," ",minifiedCode))
+            fileWrite.writelines(re.sub("\t"," ",minifiedCode)) # Replaces all tabs with single spaces
             
         if "__main__" not in file:
             py_compile.compile(file, cfile=outputDirectory + path_leaf(file) + "c" , optimize=2)
