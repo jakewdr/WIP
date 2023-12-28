@@ -10,9 +10,6 @@ BLACK = (0, 0, 0)
 LINECOLOUR = (153, 37, 190)
 
 
-def check():
-    print("Game engine connected :p")
-
 class Vector:
     @staticmethod
     def output_info():
@@ -27,6 +24,7 @@ class Vector:
 
     def __str__(self) -> str:
         return f"({self.x}, {self.y})"
+
 
 class Collisions:
     def wall_collision(entity, room_rect):
