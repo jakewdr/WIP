@@ -4,7 +4,7 @@ run:
 
 build:
 	make format
-	python build.py --OO
+	python bundler.py --OO
 
 format:
 	ruff check src/ --config ruff.toml

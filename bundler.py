@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import zipfile
 import pathlib
@@ -14,6 +15,13 @@ def path_leaf(path):
     return tail or ntpath.basename(head)
 
 def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
+    """Creates a bundle from all python files in a directory
+
+    Args:
+        srcDirectory (str): The original python file directory
+        outputDirectory (str): The output directory for the bundle
+        compressionLevel (int): The level of compression from 0 to 9
+    """
     
     shutil.rmtree(outputDirectory)
     shutil.copytree(srcDirectory, outputDirectory)
@@ -26,10 +34,9 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
             minifiedCode = python_minifier.minify(contents, rename_locals=False, rename_globals=False )
             
         with open(file, "w") as fileWrite:
-            fileWrite.writelines(minifiedCode)
-        
-    for file in pythonFiles:
-        if "__main__" not in file:  
+            fileWrite.writelines(re.sub("\t"," ",minifiedCode))
+            
+        if "__main__" not in file:
             py_compile.compile(file, cfile=outputDirectory + path_leaf(file) + "c" , optimize=2)
             os.remove(file)
             compiledFiles.append(outputDirectory + path_leaf(file) + "c")
@@ -40,3 +47,8 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
             compresslevel= int(compressionLevel)) as bundler:
         [bundler.write(file, arcname=str(path_leaf(file))) for file in compiledFiles] # List comprehension
         [os.remove(file) for file in compiledFiles]
+        
+if __name__ == "__main__":
+    scriptPath = str(os.path.realpath(__file__).replace(os.sep, "/"))  # Gets the path of the current running python script and makes sure forward-slashes are used
+    containingFolder = scriptPath.replace("bundler.py", "")
+    bundle("src/", "out/", 9)
