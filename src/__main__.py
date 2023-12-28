@@ -11,9 +11,6 @@ import os
 import game
 import engine
 
-game.check()
-engine.check()
-
 # Important Paths ->
 
 scriptPath = str(os.path.realpath(__file__).replace(os.sep, "/"))  # Gets the path of the current running python script and makes sure forward-slashes are used

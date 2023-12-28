@@ -2,13 +2,10 @@ import pygame
 import time
 
 
-def check():
-    print("Game window connected :p")
-
-
 class Window:
     def __init__(self, width: int, height: int, fullscreen: int, caption: str):
-        self.window = pygame.display.set_mode((width, height), fullscreen)
+        self.window = pygame.display.set_mode((width, height),fullscreen, vsync=0)
+        # self.window = pygame.display.set_mode((width, height), pygame.OPENGL, fullscreen, vsync=0)
         pygame.display.set_caption(caption)
         self.previous_time = time.time()
 
