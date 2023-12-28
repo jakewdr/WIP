@@ -36,7 +36,7 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
         with open(file, "w") as fileWrite:
             fileWrite.writelines(re.sub("\t"," ",minifiedCode))
             
-        if "__main__" not in file:  
+        if "__main__" not in file:
             py_compile.compile(file, cfile=outputDirectory + path_leaf(file) + "c" , optimize=2)
             os.remove(file)
             compiledFiles.append(outputDirectory + path_leaf(file) + "c")

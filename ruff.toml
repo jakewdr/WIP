@@ -28,16 +28,27 @@ exclude = [
     "venv",
 ]
 
+select = [
+    "E",
+    "F",
+]
+
 show-fixes = true
 line-length = 320
 indent-width = 4
+target-version = "py311"
 extend-select = ["C4", "SIM", "TCH"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[lint.isort]
+
+case-sensitive = true
+combine-as-imports = true
 
 [format]
 
 quote-style = "double"
-indent-style = "tab"
+indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
 docstring-code-format = true
