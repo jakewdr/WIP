@@ -5,7 +5,6 @@ import time
 def check():
 	print("Game window connected :p")
 
-
 class Window:
 	def __init__(self, width: int, height: int, fullscreen: int, caption: str):
 		self.window = pygame.display.set_mode((width, height), fullscreen)
@@ -26,3 +25,4 @@ class Window:
 		dt = current_time - self.previous_time
 		self.previous_time = current_time
 		return dt
+

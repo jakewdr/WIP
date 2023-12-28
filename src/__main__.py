@@ -49,6 +49,8 @@ def main():
 	# screen = pygame.display.set_mode((WIDTH, HEIGHT))
 	# pygame.display.set_caption("Torsion-alphatest")
 
+	# window class used for organisational purposes
+
 	Yakuza = decoder.decodeImageFile(containingFolder + "assets/Template.pak", "images/y6.png")
 	Neco = decoder.decodeImageFile(containingFolder + "assets/Template.pak", "images/neco.png")
 

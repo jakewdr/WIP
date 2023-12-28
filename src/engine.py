@@ -13,6 +13,20 @@ LINECOLOUR = (153, 37, 190)
 def check():
 	print("Game engine connected :p")
 
+class Vector:
+    @staticmethod
+    def output_info():
+        print("A class which defines a vector (containing both X/Y values) and can be added to other vectors")
+
+    def __init__(self, x: float, y: float):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other: "Vector") -> "Vector":
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __str__(self) -> str:
+        return f"({self.x}, {self.y})"
 
 class Collisions:
 	def wall_collision(entity, room_rect):
