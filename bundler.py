@@ -15,6 +15,13 @@ def path_leaf(path):
     return tail or ntpath.basename(head)
 
 def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
+    """Creates a bundle from all python files in a directory
+
+    Args:
+        srcDirectory (str): The original python file directory
+        outputDirectory (str): The output directory for the bundle
+        compressionLevel (int): The level of compression from 0 to 9
+    """
     
     shutil.rmtree(outputDirectory)
     shutil.copytree(srcDirectory, outputDirectory)
@@ -28,8 +35,7 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
             
         with open(file, "w") as fileWrite:
             fileWrite.writelines(re.sub("\t"," ",minifiedCode))
-        
-    for file in pythonFiles:
+            
         if "__main__" not in file:  
             py_compile.compile(file, cfile=outputDirectory + path_leaf(file) + "c" , optimize=2)
             os.remove(file)
@@ -45,4 +51,4 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int):
 if __name__ == "__main__":
     scriptPath = str(os.path.realpath(__file__).replace(os.sep, "/"))  # Gets the path of the current running python script and makes sure forward-slashes are used
     containingFolder = scriptPath.replace("bundler.py", "")
-    bundle("src/", "out/", 0)
+    bundle("src/", "out/", 9)
