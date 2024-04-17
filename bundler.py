@@ -58,3 +58,6 @@ if "__main__" in __name__:
     bundle("src/", "out/", 9)
     end = perf_counter()
     print(f"Process completed in {end - start} seconds")
+
+# If more maths loops were added/we started to use numpy then perhaps we could ahead
+# of time numba compile some of the functions increasing performance further
