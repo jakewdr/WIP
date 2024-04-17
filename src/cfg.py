@@ -11,5 +11,5 @@ def unpackCfg(cfgFile: str) -> Dict[str, str]:  # This is gonna assume that the 
         Dict[str, str]: The config file as a dictionary with the keys being the first column and the other column being the
     """
     with open(cfgFile, "r") as cfgContents:
-        return dict([line.split("=", 1) for line in [line.strip("\n") for line in cfgContents if line != ""]])
+        return dict([line.split("=", 1) for line in [line.strip("\n") for line in cfgContents if line != ""]])  # The if is needed due to a bug where the process would fail due to an empty line in the config
         # World's ugliest one liner but it gets the job done^

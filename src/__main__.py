@@ -18,9 +18,11 @@ bundlePath = scriptPath.replace("/__main__.py", "")
 containingFolder = scriptPath.replace("bundle.py/__main__.py", "")  # Removes the bundle and script path from the string
 
 # Constants - >
+
 WIDTH, HEIGHT, FPS = 1080, 720, 60
 
 # Colours ->
+
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
