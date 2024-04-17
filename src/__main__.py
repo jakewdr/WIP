@@ -1,18 +1,15 @@
 # Imports ->
 
-import decoder
 import pygame
-import cfg
 import sys
 import os
 
 # Bundled parts imports ->
 
-import game
+import decoder
 import engine
-
-game.check()
-engine.check()
+import game
+import cfg
 
 # Important Paths ->
 
@@ -21,8 +18,7 @@ bundlePath = scriptPath.replace("/__main__.py", "")
 containingFolder = scriptPath.replace("bundle.py/__main__.py", "")  # Removes the bundle and script path from the string
 
 # Constants - >
-WIDTH, HEIGHT = 1080, 720
-FPS = 60
+WIDTH, HEIGHT, FPS = 1080, 720, 60
 
 # Colours ->
 WHITE = (255, 255, 255)
@@ -35,7 +31,7 @@ coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
 BACKGROUNDCOLOUR = coloursConfig.get("background")
 LINECOLOUR = coloursConfig.get("line")
 WALLCOLOUR = coloursConfig.get("walls")
-del coloursConfig
+del coloursConfig  # Deletes the colour config dictionary after retrieving variables needed
 
 
 def main():
@@ -51,8 +47,8 @@ def main():
 
     # window class used for organisational purposes
 
-    Yakuza = decoder.decodeImageFile(containingFolder + "assets/Template.pak", "images/y6.png")
-    Neco = decoder.decodeImageFile(containingFolder + "assets/Template.pak", "images/neco.png")
+    Yakuza = decoder.decodeImageFile(f"{containingFolder}assets/Template.pak", "images/y6.png")
+    Neco = decoder.decodeImageFile(f"{containingFolder}assets/Template.pak", "images/neco.png")
 
     player = engine.Entity(70, 70, 50, 50, "image", BLUE, Yakuza)
     third_entity = engine.Entity(95, 300, 50, 50, "image", RED, Neco)
@@ -86,11 +82,10 @@ def main():
 
         wall.draw(screen.window)
 
-        [entity.draw(screen.window, entity.imageMode) for entity in entities]  # List comprehension because we gaming
+        for entity in entities:
+            entity.draw(screen.window, entity.imageMode)
 
-        # Print fps
-
-        pygame.display.update()  # Switch th .flip() when GPU rendering :p
+        pygame.display.update()  # Switch to .flip() when GPU rendering :p
         # pygame.time.wait(int( (2*(1000/(FPS))) - (1000/(clock.get_fps() + 1)) )) # clock shenanigans to counter lag - DONT GET RID OF JUST YET PLS
         pygame.time.wait(int(1000 / (FPS)))  # Normal clock, * 1000 cos .wait is in ms
 

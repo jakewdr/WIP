@@ -1,8 +1,8 @@
-run:
+run & start:
 	make build
 	python out/bundle.py --OO
 
-build:
+build & bundle:
 	make format
 	python bundler.py --OO
 

@@ -1,5 +1,10 @@
-pygame==2.5.2
-pipreqs>=0.4.13
-pyinstaller>=6.3.0
-ruff>=0.1.9
-python-minifier==2.9.0 
+## python 3.11.6 Windows ##
+
+# Dev dependencies (required for building) ->
+
+ruff>=0.1.9 # Python file formatter and linter
+python-minifier>=2.9.0 # Python file compression 
+
+# Output dependencies (required for using the output) ->
+
+pygame==2.5.2 # Game engine

@@ -6,8 +6,7 @@ containingFolder = str(os.path.realpath(__file__).replace(os.sep, '/')).replace(
 
 def paker(folderToBePacked:str, outputLocation:str, manifestName:str):
     with open(folderToBePacked + manifestName, "r") as cfgContents:
-        cleanedList = [line.strip("\n") for line in cfgContents]
-        separatedLines = [line.split("=") for line in cleanedList]
+        separatedLines = [line.split("=") for line in [line.strip("\n") for line in cfgContents]] # Reads config
 
     shutil.make_archive(separatedLines[0][1], "zip", folderToBePacked)
     if os.path.isfile(separatedLines[0][1] + ".pak"): os.remove(separatedLines[0][1] + ".pak")
