@@ -23,18 +23,15 @@ WIDTH, HEIGHT, FPS = 1080, 720, 60
 
 # Colours ->
 
-WHITE = (255, 255, 255)
 RED = (255, 0, 0)
-GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
-BLACK = (0, 0, 0)
 
 coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
 BACKGROUNDCOLOUR = coloursConfig.get("background")
 LINECOLOUR = coloursConfig.get("line")
 WALLCOLOUR = coloursConfig.get("walls")
 del coloursConfig  # Deletes the colour config dictionary after retrieving variables needed
-
+                    # Not even sure if this is even optimization but we ball
 
 def main():
     print(os.getcwd())

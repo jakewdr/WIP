@@ -30,12 +30,13 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> No
     pythonFiles = [str(entry).replace(os.sep, '/') # Appends a string of the file path with forward slashes
     for entry in pathlib.Path(outputDirectory).iterdir() # For all the file entries in the directory
     if ".py" in str(pathlib.Path(entry))] # If it is a verified file and is a python file
+    # Below is where the compiling and optimizations happen
     for file in pythonFiles:
         with open(file, "r+") as fileRW:
             minifiedCode = python_minifier.minify(fileRW.read(), rename_locals=False, rename_globals=False) # I don't rename vars as that could cause problems when importing between files 
             fileRW.seek(0)
             fileRW.writelines(minifiedCode)
-            fileRW.truncate()
+            fileRW.truncate() # This line and the seek one somehow fix some corruption issues
             
         if "__main__" not in file: # If the __main__.py file is found in the list ignore compilation
             compiledFile = f"{outputDirectory}{pathLeaf(file)}c"
@@ -43,12 +44,12 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> No
             os.remove(file)
             compiledFiles.append(compiledFile) # Outputs compiled python file
         else:
-            compiledFiles.append(file)
+            compiledFiles.append(file) # This is only for the __main__.py file
     with zipfile.ZipFile(f"{outputDirectory}bundle.py", 'w',compression=zipfile.ZIP_DEFLATED,
             compresslevel=compressionLevel) as bundler:
         for file in compiledFiles:
-            bundler.write(file, arcname=pathLeaf(file))
-            os.remove(file)
+            bundler.write(file, arcname=pathLeaf(file)) # pathleaf is needed to not maintain folder structure
+            os.remove(file) # Clean up
     
     end = perf_counter()
     print(f"Bundled in {end - start} seconds")
