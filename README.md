@@ -24,6 +24,22 @@ And to run just enter this:
 
 This even automatically bundles!
 
+# Requirements
+
+[make](https://www.gnu.org/software/make/#download)
+[python (around 3.11.6)](https://www.python.org/downloads/)
+
+## Pip packages (all listed in [requirements.txt](https://github.com/jakewdr/WIP/blob/main/requirements.txt)
+
+### To build
+
+[ruff 0.1.9 or above](https://pypi.org/project/ruff/)
+[python-minifier 2.9.0 or above](https://pypi.org/project/python-minifier/)
+
+### To run
+
+[pygame 2.5.2](https://pypi.org/project/pygame/)
+
 # Credits
 
  - [jakewdr](https://github.com/jakewdr) for python bundler
