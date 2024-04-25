@@ -30,7 +30,7 @@ This even automatically bundles!
 
 [python (around 3.11.6)](https://www.python.org/downloads/)
 
-## Pip packages (all listed in [requirements.txt](https://github.com/jakewdr/WIP/blob/main/requirements.txt)
+## Pip packages (all listed in [requirements.txt](https://github.com/jakewdr/WIP/blob/main/requirements.txt))
 
 ### To build
 
