@@ -7,7 +7,7 @@ build & bundle:
 	python bundler.py --OO
 
 format:
-	ruff check src/ --config ruff.toml
+	ruff check --fix src/ --config ruff.toml
 	ruff format src/ --config ruff.toml
 
 setup: requirements.txt

@@ -1,15 +1,15 @@
 # Imports ->
 
-import pygame
-import sys
 import os
+import sys
+
+import cfg
 
 # Bundled parts imports ->
-
 import decoder
 import engine
 import game
-import cfg
+import pygame
 
 # Important Paths ->
 
