@@ -2,7 +2,7 @@
 
 # Dev dependencies (required for building) ->
 
-ruff>=0.1.9 # Python file formatter and linter
+ruff>=0.4.0 # Python file formatter and linter
 python-minifier>=2.9.0 # Python file compression 
 
 # Output dependencies (required for using the output) ->
