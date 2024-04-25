@@ -31,7 +31,8 @@ BACKGROUNDCOLOUR = coloursConfig.get("background")
 LINECOLOUR = coloursConfig.get("line")
 WALLCOLOUR = coloursConfig.get("walls")
 del coloursConfig  # Deletes the colour config dictionary after retrieving variables needed
-                    # Not even sure if this is even optimization but we ball
+# Not even sure if this is even optimization but we ball
+
 
 def main():
     print(os.getcwd())

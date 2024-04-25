@@ -1,3 +1,7 @@
+# bundled files (you should build them yourself)
+
+out/**
+
 # vscode specific
 
 .idea/
