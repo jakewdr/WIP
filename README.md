@@ -40,7 +40,7 @@ This even automatically bundles!
 
 ### To run
 
-[pygame 2.5.2](https://pypi.org/project/pygame/)
+- [pygame 2.5.2](https://pypi.org/project/pygame/)
 
 # Credits
 
