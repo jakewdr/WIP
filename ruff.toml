@@ -6,14 +6,21 @@ target-version = "py311"
 [lint]
 
 select = [
+    "I",   # isort
+    "F",   # pyflakes
+    "B",   # flake8-bugbear
     "E",   # pycodestyle errors
     "W",   # pycodestyle warnings
-    "F",   # pyflakes
-    "I",   # isort
     "C",   # flake8-comprehensions
-    "B",   # flake8-bugbear
+    
     "UP",  # py-upgrade
+
+    "PIE", # flake8-pie
     "SIM", # flake8-simplify
+    "T10", # flake8-debugger
+    "RUF", # Ruff-specific rules
+    "TCH", # flake8-type-checking
+    
 ]
 
 # Exclude a variety of commonly ignored directories.

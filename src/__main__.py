@@ -64,9 +64,9 @@ def main():
                 player.line_end = pygame.mouse.get_pos()
                 player.line_exists = not player.line_exists
 
-            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
-                # third_entity.random_swing(WIDTH, HEIGHT)
-                third_entity.random_swing(player)
+            # if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
+            # third_entity.random_swing(WIDTH, HEIGHT)
+            # third_entity.random_swing(player)
 
         for entity in entities:
             entity.accelerate_along_line(WIDTH, HEIGHT)
@@ -75,8 +75,8 @@ def main():
                 entity.velocity[0] *= -1
                 entity.velocity[1] *= -1
 
-        screen.window.fill(BACKGROUNDCOLOUR)
-        pygame.draw.rect(screen.window, WALLCOLOUR, room_rect, 2)
+        screen.window.fill(str(BACKGROUNDCOLOUR))
+        pygame.draw.rect(screen.window, str(WALLCOLOUR), room_rect, 2)
 
         wall.draw(screen.window)
 
