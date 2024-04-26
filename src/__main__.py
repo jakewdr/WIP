@@ -4,8 +4,6 @@ import os
 import sys
 
 import cfg
-
-# Bundled parts imports ->
 import decoder
 import engine
 import game
