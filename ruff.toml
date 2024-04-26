@@ -1,3 +1,21 @@
+show-fixes = true
+line-length = 320
+indent-width = 4
+target-version = "py311"
+
+[lint]
+
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "C",   # flake8-comprehensions
+    "B",   # flake8-bugbear
+    "UP",  # py-upgrade
+    "SIM", # flake8-simplify
+]
+
 # Exclude a variety of commonly ignored directories.
 exclude = [
     ".bzr",
@@ -28,23 +46,8 @@ exclude = [
     "venv",
 ]
 
-select = [
-    "E",   # pycodestyle errors
-    "W",   # pycodestyle warnings
-    "F",   # pyflakes
-    "I",   # isort
-    "C",   # flake8-comprehensions
-    "B",   # flake8-bugbear
-    "UP",  # py-upgrade
-    "SIM", # flake8-simplify
-]
-
-show-fixes = true
-line-length = 320
-indent-width = 4
-target-version = "py311"
-extend-select = ["C4", "SIM", "TCH"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+extend-select = ["C4", "SIM", "TCH"]
 
 [lint.isort]
 
