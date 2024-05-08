@@ -6,7 +6,6 @@ import py_compile
 import python_minifier
 from time import perf_counter
 
-
 compiledFiles = []
 
 def pathLeaf(path) -> str:
@@ -38,7 +37,7 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> No
             fileRW.writelines(minifiedCode)
             fileRW.truncate() # This line and the seek one somehow fix some corruption issues
             
-        if "__main__" not in file: # If the __main__.py file is found in the list ignore compilation
+        if "__main__" not in file: # If the __main__.py file is found in the list ignore compilation (this is to avoid the interpreter finding no entrypoint)
             compiledFile = f"{outputDirectory}{pathLeaf(file)}c"
             py_compile.compile(file, cfile=compiledFile, optimize=2)
             os.remove(file)

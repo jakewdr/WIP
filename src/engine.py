@@ -118,7 +118,7 @@ class Entity:
         self.velocity[1] += 0.5  # Adds velocity in downwards dir (down is pos)
 
     def apply_air_res(self):
-        air_res = 0.998
+        air_res = 0.998  # Air resistance value
         self.velocity[0] *= air_res
         self.velocity[1] *= air_res
 
@@ -150,7 +150,7 @@ class Entity:
 
     def draw(self, window, imageMode):
         if imageMode == "color":
-            pygame.draw.rect(window, self.color, self.rect)  # changed back to colour cause i think the images are casing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  nono more like HEHEHEHEHA GRrrRRrrrrrr
+            pygame.draw.rect(window, self.color, self.rect)  # changed back to colour cause i think the images are causing the lag # heheheha grrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr  nono more like HEHEHEHEHA GRrrRRrrrrrr
         elif imageMode == "image":
             window.blit(self.image, self.rect)
 
