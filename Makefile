@@ -18,4 +18,4 @@ fix:
 	make format
 
 setup: requirements.txt
-	pip install -r requirements.txt
+	pip install -r requirements.txt --no-color
