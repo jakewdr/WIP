@@ -17,3 +17,5 @@ def paker(folderToBePacked:str, outputLocation:str, manifestName:str):
 if __name__ == "__main__":
     PAKNAME = "template"
     paker(containingFolder + f"/src/{PAKNAME}/", containingFolder +"/out/", "manifest.cfg")
+    
+# can't remember if this is finished or not

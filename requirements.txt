@@ -1,4 +1,4 @@
-## python 3.11.6 Windows ##
+## tested on python 3.11.6 Windows ##
 
 # Dev dependencies (required for building) ->
 
