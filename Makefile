@@ -3,6 +3,8 @@ run & start:
 	python out/bundle.py --OO
 
 build & bundle:
+	ruff check --fix bundler.py --config ruff.toml
+	ruff format bundler.py --config ruff.toml
 	make format
 	python bundler.py --OO
 
