@@ -36,7 +36,7 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> No
     ]  # If it is a verified file and is a python file
     # Below is where the compiling and optimizations happen
 
-    pool = Pool(6) # 6 is the number of processes
+    pool = Pool(6)  # 6 is the number of processes
     for file in pythonFiles:
         pool.apply_async(
             compileAndMinify,
@@ -79,6 +79,3 @@ if "__main__" in __name__:
     bundle("src/", "out/", 9)
     end = perf_counter()
     print(f"Process completed in {end - start} seconds")
-
-# If more maths loops were added/we started to use numpy then perhaps we could ahead
-# of time numba compile some of the functions increasing performance further
