@@ -36,7 +36,7 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> No
     ]  # If it is a verified file and is a python file
     # Below is where the compiling and optimizations happen
 
-    pool = Pool(6) # 6 is the pool size
+    pool = Pool(6) # 6 is the number of processes
     for file in pythonFiles:
         pool.apply_async(
             compileAndMinify,
