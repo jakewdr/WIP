@@ -10,11 +10,6 @@ import python_minifier
 
 compiledFiles = []
 
-
-def pathLeaf(path) -> str:
-    return str(os.path.split(path)[1])
-
-
 def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> None:
     """Creates a bundle from all python files in a directory
 
@@ -49,9 +44,10 @@ def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> No
     pool.close()
     pool.join()
 
+    # ^I should implement an option to only do this when it is faster
     with zipfile.ZipFile(f"{outputDirectory}bundle.py", "w", compression=zipfile.ZIP_DEFLATED, compresslevel=compressionLevel) as bundler:
         for file in compiledFiles:
-            bundler.write(file, arcname=pathLeaf(file))  # pathleaf is needed to not maintain folder structure
+            bundler.write(file, arcname=str(os.path.split(file)[1]))  # pathleaf is needed to not maintain folder structure
             os.remove(file)  # Clean up
 
     end = perf_counter()
@@ -65,8 +61,8 @@ def compileAndMinify(file: str, outputDirectory: str):
         fileRW.writelines(minifiedCode)
         fileRW.truncate()  # This line and the seek one somehow fix some corruption issues
 
-    if "__main__" not in file:  # If the __main__.py file is found in the list ignore compilation (this is to avoid the interpreter finding no entrypoint)
-        compiledFile = f"{outputDirectory}{pathLeaf(file)}c"
+    if "__main__.py" not in file:  # If the __main__.py file is found in the list ignore compilation (this is to avoid the interpreter finding no entrypoint)
+        compiledFile = f"{outputDirectory}{str(os.path.split(file)[1])}c"
         py_compile.compile(file, cfile=compiledFile, optimize=2)
         os.remove(file)
         compiledFiles.append(compiledFile)  # Outputs compiled python file
@@ -76,6 +72,6 @@ def compileAndMinify(file: str, outputDirectory: str):
 
 if "__main__" in __name__:
     start = perf_counter()
-    bundle("src/", "out/", 9)
+    bundle("src/", "out/", 0)
     end = perf_counter()
     print(f"Process completed in {end - start} seconds")
