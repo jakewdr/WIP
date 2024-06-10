@@ -34,7 +34,7 @@ This even automatically bundles!
 
 ### To build
 
-- [ruff 0.4.0 or above](https://pypi.org/project/ruff/)
+- [ruff 0.4.8 or above](https://pypi.org/project/ruff/)
 
 - [python-minifier 2.9.0 or above](https://pypi.org/project/python-minifier/)
 
