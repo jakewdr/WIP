@@ -10,6 +10,7 @@ import python_minifier
 
 compiledFiles = []
 
+
 def bundle(srcDirectory: str, outputDirectory: str, compressionLevel: int) -> None:
     """Creates a bundle from all python files in a directory
 
@@ -62,7 +63,7 @@ def compileAndMinify(file: str, outputDirectory: str):
         fileRW.truncate()  # This line and the seek one somehow fix some corruption issues
 
     if "__main__.py" not in file:  # If the __main__.py file is found in the list ignore compilation (this is to avoid the interpreter finding no entrypoint)
-        compiledFile = f"{outputDirectory}{str(os.path.split(file)[1])}c"
+        compiledFile = f"{outputDirectory}{os.path.split(file)[1]!s}c"
         py_compile.compile(file, cfile=compiledFile, optimize=2)
         os.remove(file)
         compiledFiles.append(compiledFile)  # Outputs compiled python file
