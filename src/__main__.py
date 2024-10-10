@@ -12,20 +12,22 @@ import game
 
 # Important Paths ->
 
-scriptPath = str(os.path.realpath(__file__).replace(os.sep, "/"))  # Gets the path of the current running python script and makes sure forward-slashes are used
-bundlePath = scriptPath.replace("/__main__.py", "")
-containingFolder = scriptPath.replace("bundle.py/__main__.py", "")  # Removes the bundle and script path from the string
+scriptPath: str = str(os.path.realpath(__file__).replace(os.sep, "/"))  # Gets the path of the current running python script and makes sure forward-slashes are used
+bundlePath: str = scriptPath.replace("/__main__.py", "")
+containingFolder: str = scriptPath.replace("bundle.py/__main__.py", "")  # Removes the bundle and script path from the string
 
 # Constants - >
 
-WIDTH, HEIGHT, FPS = 1080, 720, 60
+WIDTH: int = 1080
+HEIGHT: int = 720
+FPS: int = 60
 
 # Colours ->
 
-RED = (255, 0, 0)
-BLUE = (0, 0, 255)
+RED: tuple[int, int] = (255, 0, 0)
+BLUE: tuple[int, int] = (0, 0, 255)
 
-coloursConfig = cfg.unpackCfg(containingFolder + "colours.cfg")
+coloursConfig: dict = cfg.unpackCfg(containingFolder + "colours.cfg")
 BACKGROUNDCOLOUR = coloursConfig.get("background")
 LINECOLOUR = coloursConfig.get("line")
 WALLCOLOUR = coloursConfig.get("walls")
