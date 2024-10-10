@@ -3,11 +3,12 @@
 import os
 import sys
 
+import pygame
+
 import cfg
 import decoder
 import engine
 import game
-import pygame
 
 # Important Paths ->
 

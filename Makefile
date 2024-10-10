@@ -3,7 +3,6 @@ run & start:
 	python out/bundle.py --OO
 
 build & bundle:
-	
 	make format
 	python bundler.py --OO
 
